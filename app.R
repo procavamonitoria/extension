@@ -69,7 +69,6 @@
 }
 {
 novos <- DBI::dbGetQuery(far_pool, "SELECT * FROM vistas.seleccao WHERE data BETWEEN '2024-01-01' AND CURRENT_DATE")
-administrativa <- read_fst("administrativa.fst")
 Geocoded_Households <- read_fst("baseline_households.fst")
 meta <- read_fst("metas.fst")
 respondentes <- read_fst("respondentes.fst")
