@@ -460,63 +460,63 @@ server <- function(input, output, session) {
     vb6})
 
   
-  # output$map <- renderTmap({
+  output$map <- renderTmap({
   # 
-  #  tm <-  tm_basemap(server = "OpenStreetMap") +
-  #     tm_shape(posts, is.master = FALSE) + tm_borders(alpha = 0)+
-  #     tm_polygons("Total",
-  #                 id = toupper("ADM2_PT"),
-  #                 palette = "BrBG", n = 9, contrast = c(0.3, 1),
-  #                 breaks = Breaks,
-  #                 borders = NULL,
-  #                 colorNA = NULL,
-  #                 legend.is.portrait = FALSE,
-  #                 labels = Labels,
-  #                 popup.vars=c("Distrito:"="ADM2_PT", 
-  #                              "Posto Administrativo:"="ADM3_PT", 
-  #                              "AF Assistidos:"="Total",
-  #                              "Homens adultos:"="Homens Adultos", 
-  #                              "Homens jovens:"="Homens Jovens",
-  #                              "Mulheres adultas:"="Mulheres Adultos",
-  #                              "Mulheres jovens:"="Mulheres Jovens"),
-  #                 style = "fixed", 
-  #                 title = "AF alcançados", 
-  #                 alpha = 0.5,
-  #                 legend.stack = "horizontal")+
-  #     tm_shape(Linha_base) +
-  #     
-  #     tm_dots("Linha de Base", col="tratamento", size = c(.001), scale = 5, 
-  #             shape ="tratamento",
-  #             popup.vars = c("Distrito:" = "distrito",
-  #                            "Tipologia:" = "tratamento",
-  #                            "Membros do AF:" = "hh_members", 
-  #                            "Sexo:" = "sexo",
-  #                            "Idade:" = "idade",
-  #                            "Código do AF:" = "codigo"),
-  #             palette=c("red", "green"))+
-  #     
-  #     tm_symbols(size = "hh_members", title.size = "Membros do AF:",
-  #                shape = "tratamento", title.shape = "Tipo:")+
-  #     
-  #     tm_shape(selected) +
-  #     tm_dots(
-  #       group = "sexo",
-  #       col = "papel",
-  #       palette = "Reds",
-  #       popup.vars = c("Distrito:" = "distrito", "Nome:" = "nome", "Sexo:" = "sexo", "Nascimento:" = "ano", "Localidade:" = "localidade", "Povoado:" = "povoado", "Papel:" = "papel", "Propostas:" = "proposta")
-  #     ) +
-  #     ############ Classify these bubles into treatment and control
-  #     tm_view(set.view = c(lon = 37.33, lat = -16.88, zoom = 9))+
-  #     qtm(Districts, 
-  #         fill = NULL,
-  #         text = "ADM2_PT",
-  #         text.size = 1.7,
-  #         group = NULL,
-  #         text.col = "#A9A9A9",
-  #         fillCol = "ADM2_PT",
-  #         borders = "#C0C0C0", scale = 1, polygons.id = "ADM2_PT")
-  #   
-  # })
+   tm <-  tm_basemap(server = "OpenStreetMap") +
+   tm_shape(posts, is.master = FALSE) + tm_borders(alpha = 0)+
+     tm_polygons("Total",
+                   id = toupper("ADM2_PT"),
+                   palette = "BrBG", n = 9, contrast = c(0.3, 1),
+                   breaks = Breaks,
+                   borders = NULL,
+                  colorNA = NULL,
+                   legend.is.portrait = FALSE,
+                   labels = Labels,
+                   popup.vars=c("Distrito:"="ADM2_PT", 
+                                "Posto Administrativo:"="ADM3_PT", 
+                                "AF Assistidos:"="Total",
+                                "Homens adultos:"="Homens Adultos", 
+                                "Homens jovens:"="Homens Jovens",
+                               "Mulheres adultas:"="Mulheres Adultos",
+                                "Mulheres jovens:"="Mulheres Jovens"),
+                   style = "fixed", 
+                   title = "AF alcançados", 
+                   alpha = 0.5,
+                   legend.stack = "horizontal")+
+       tm_shape(Linha_base) +
+       
+       tm_dots("Linha de Base", col="tratamento", size = c(.001), scale = 5, 
+               shape ="tratamento",
+               popup.vars = c("Distrito:" = "distrito",
+                              "Tipologia:" = "tratamento",
+                              "Membros do AF:" = "hh_members", 
+                              "Sexo:" = "sexo",
+                              "Idade:" = "idade",
+                              "Código do AF:" = "codigo"),
+               palette=c("red", "green"))+
+      
+      tm_symbols(size = "hh_members", title.size = "Membros do AF:",
+                  shape = "tratamento", title.shape = "Tipo:")+
+       
+       tm_shape(selected) +
+       tm_dots(
+         group = "sexo",
+         col = "papel",
+         palette = "Reds",
+         popup.vars = c("Distrito:" = "distrito", "Nome:" = "nome", "Sexo:" = "sexo", "Nascimento:" = "ano", "Localidade:" = "localidade", "Povoado:" = "povoado", "Papel:" = "papel", "Propostas:" = "proposta")
+       ) +
+       ############ Classify these bubles into treatment and control
+       tm_view(set.view = c(lon = 37.33, lat = -16.88, zoom = 9))+
+       qtm(Districts, 
+           fill = NULL,
+          text = "ADM2_PT",
+          text.size = 1.7,
+           group = NULL,
+           text.col = "#A9A9A9",
+           fillCol = "ADM2_PT",
+           borders = "#C0C0C0", scale = 1, polygons.id = "ADM2_PT")
+     
+   })
   
   
   output$desempenho_comparativo <- renderPlot({
