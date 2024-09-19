@@ -70,13 +70,13 @@
 }
 {
 novos <- DBI::dbGetQuery(far_pool, "SELECT * FROM vistas.seleccao WHERE data BETWEEN '2024-01-01' AND CURRENT_DATE")
-Geocoded_Households <- fst::read.fst("baseline_households.feather")
-meta <- fst::read.fst("metas.feather")
-respondentes <- fst::read.fst("respondentes.feather")
-beneficiarios <- fst::read.fst("prelistas.feather")
-total <- fst::read.fst("total.feather")
-old_hh <- fst::read.fst("selecionados.feather")
-beneficiarios <- fst::read.fst("prelistas.feather")
+Geocoded_Households <- read_feather("baseline_households.feather")
+meta <- read_feather("metas.feather")
+respondentes <- read_feather("respondentes.feather")
+beneficiarios <- read_feather("prelistas.feather")
+total <- read_feather("total.feather")
+old_hh <- read_feather("selecionados.feather")
+beneficiarios <- read_feather("prelistas.feather")
 postos_administrativos =st_read("posto_2024.shp") %>% st_make_valid() %>% dplyr::select(-Shape_Leng)
 
 Distritos  <- ms_dissolve(postos_administrativos, field = c("ADM2_PT"))
