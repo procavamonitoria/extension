@@ -69,13 +69,13 @@
 }
 {
 novos <- DBI::dbGetQuery(far_pool, "SELECT * FROM vistas.seleccao WHERE data BETWEEN '2024-01-01' AND CURRENT_DATE")
-Geocoded_Households <- read_fst("baseline_households.fst")
-meta <- read_fst("metas.fst")
-respondentes <- read_fst("respondentes.fst")
-beneficiarios <- read_fst("prelistas.fst")
-total <- read_fst("total.fst")
-old_hh <- read_fst("selecionados.fst")
-beneficiarios <- read_fst("prelistas.fst")
+Geocoded_Households <- fst::read.fst("baseline_households.fst")
+meta <- fst::read.fst("metas.fst")
+respondentes <- fst::read.fst("respondentes.fst")
+beneficiarios <- fst::read.fst("prelistas.fst")
+total <- fst::read.fst("total.fst")
+old_hh <- fst::read.fst("selecionados.fst")
+beneficiarios <- fst::read.fst("prelistas.fst")
 postos_administrativos =st_read("posto_2024.shp") %>% st_make_valid() %>% dplyr::select(-Shape_Leng)
 
 Distritos  <- ms_dissolve(postos_administrativos, field = c("ADM2_PT"))
